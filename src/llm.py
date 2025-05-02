@@ -12,6 +12,17 @@ except ImportError:
     speech_recognition_available = False
     logger.warning("SpeechRecognition not installed. Install with: pip install SpeechRecognition")
 
+BANKING_KEYWORDS = [
+    "bank", "customer", "finance", "loan", "credit", "debit", "statement", "interest rate",
+    "regulation", "risk", "compliance", "investment", "mortgage", "branch",
+    "retail banking", "commercial banking", "fintech", "ATM", "deposit",
+    "withdrawal", "transaction", "fraud", "AML", "KYC", "payment", "treasury"
+]
+
+def is_banking_question(transcript: str) -> bool:
+    lower_transcript = transcript.lower()
+    return any(keyword in lower_transcript for keyword in BANKING_KEYWORDS)
+
 def transcribe_audio(path_to_file=OUTPUT_FILE_NAME):
     """
     Transcribe audio to text using SpeechRecognition.
@@ -42,24 +53,49 @@ def transcribe_audio(path_to_file=OUTPUT_FILE_NAME):
         logger.error(f"Error in transcription: {e}")
         return f"Transcription error: {e}"
 
-def generate_answer(transcript, short_answer=True, temperature=0.7):
+def generate_answer(transcript, short_answer=True, temperature=0.3):
     """
     Generates an answer based on the given transcript using Ollama.
+    For banking-related questions, use STAR model; otherwise, give end-to-end technical answer.
     """
     try:
-        # Choose prompt style
-        if short_answer:
-            instruction = "Concisely respond, limiting your answer to 70 words."
-            max_tokens = 250
+        # Detect type of question
+        if is_banking_question(transcript):
+            # STAR model for banking
+            model_instruction = (
+                "Answer using the STAR (Situation, Task, Action, Result) framework. "
+                "Give examples based on UK law & Regulations. "
+                "Strongly emphasize the Action and Result sections: "
+                "describe in detail **what YOU did to resolve the issue**, and provide specific, concrete examples of your actions and the positive outcome. "
+                "Use first-person language and focus on your personal contribution."
+            )
         else:
-            instruction = "Before answering, take a deep breath and think one step at a time. Provide a complete answer in no more than 150 words."
-            max_tokens = 500
+            # Technical: comprehensive end-to-end explanation
+            model_instruction = (
+                "Provide a comprehensive, step-by-step technical answer suitable for an interview. "
+                "Explain your reasoning and solution clearly."
+            )
 
+        # Prompt style
+        if short_answer:
+            instruction = "Limit your answer to about 70 words."
+            max_tokens = 500
+        else:
+            instruction = "Keep your answer under 150 words."
+            max_tokens = 5000
+
+        # System and final prompts
         system_prompt = f"You are interviewing for a {INTERVIEW_POSTION} position. Respond professionally."
-        prompt = f"""{system_prompt}\n\nQuestion from interview (transcribed audio): {transcript}\n\n{instruction}\n\nYour answer:\n"""
+        prompt = (
+            f"{system_prompt}\n\n"
+            f"Question (transcribed audio): {transcript}\n\n"
+            f"{model_instruction}\n"
+            f"{instruction}\n\n"
+            "Your answer:\n"
+        )
 
         payload = {
-            "model": "llama2",  # or whichever model is configured
+            "model": "llama2",  # Set this as needed
             "prompt": prompt,
             "temperature": temperature,
             "max_tokens": max_tokens,
