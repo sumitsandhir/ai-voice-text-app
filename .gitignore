@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+ENV/
+*.env
+*.venv
+*.log
+*.idea
+*.xml
+
+# MacOS
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+
+# Project artifacts
+*.db
+*.sqlite3
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Images, general binary output, and temp files
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.svg
+*.pdf
+*.out
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Flask
+instance/
+.webassets-cache
+
+# Testing
+.coverage
+.tox/
+.nox/
+.cache
+pytest_cache/
+.pytest_cache/
+htmlcov/
+coverage.xml
+
+# User/API configuration
+src/constants.py
+
+# Static/media folders
+static/
+media/
