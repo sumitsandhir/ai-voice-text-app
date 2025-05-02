@@ -34,4 +34,3 @@ certifi~=2025.4.26
 pycparser~=2.22
 darkdetect~=0.8.0
 platformdirs~=4.3.7
-openai-whisper

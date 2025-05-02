@@ -4,7 +4,8 @@ A voice recognition AI application that listens to users, identifies whether the
 
 # Ollama
 
-Download ollama from website https://ollama.com/
+# Download ollama from website 
+https://ollama.com/
 ---
 
 ## Features
@@ -18,31 +19,31 @@ Download ollama from website https://ollama.com/
 
 ### 2. **Navigate to project directory**
 ### 3. **Remove any existing virtual environment**
-sh rm -rf .venv
+rm -rf .venv
 ### 4. **Create a new virtual environment with Homebrew Python**
 
 - On Apple Silicon (M1/M2/M3):
 
-    ```sh
+    ```
     /opt/homebrew/bin/python3 -m venv .venv
     ```
 
 - On Intel Macs:
 
-    ```sh
+    ```
     /usr/local/bin/python3 -m venv .venv
     ```
 
 *(If unsure, run `which python3` after Homebrew install to confirm the correct path.)*
 
 ### 5. **Activate the virtual environment**
-sh source .venv/bin/activate
+ source .venv/bin/activate
 
 ### 6. **Upgrade pip (recommended)**
-sh pip install --upgrade pip
+ pip install --upgrade pip
 
 ### 7. **Install all Python dependencies**
-sh pip install -r requirements.txt
+ pip install -r requirements.txt
 
 ``` 
 ---
@@ -51,7 +52,7 @@ sh pip install -r requirements.txt
 
 ### **Install OpenAI Whisper (for local transcription)**
 ```
-sh pip install git+[https://github.com/openai/whisper.git](https://github.com/openai/whisper.git)
+ pip install git+[https://github.com/openai/whisper.git](https://github.com/openai/whisper.git)
 
 ``` 
 ---
@@ -67,7 +68,7 @@ If you encounter:AttributeError: module 'PySimpleGUI' has no attribute 'theme'
    This can shadow the installed package.
 
 2. **Uninstall any problematic install and reinstall a proper version:**
-    ```sh
+    ```
     pip uninstall PySimpleGUI -y
     pip install "PySimpleGUI>=4.60.5"
     ```
@@ -108,7 +109,7 @@ sh python3 -c "import tkinter; print(tkinter.TkVersion)"
 
 - Run the Python app as needed, e.g.:
     ```sh
-    python your_script.py
+    python run_simple_ui.py
     ```
 - Follow on-screen instructions for recording, registering voice, and interacting.
 
@@ -119,14 +120,8 @@ sh python3 -c "import tkinter; print(tkinter.TkVersion)"
 ### Voice Recognition
 The application uses the Web Speech API (for web) or OpenAI Whisper (for local Python) to capture audio from the microphone and convert it to text.
 
-### User Identification
-The application extracts audio features to create a voice profile for the owner, and compares future inputs to this profile using similarity metrics.
-
 ### Response Generation
 Responses are generated based on the input question, often including both text and code examples where relevant.
-
-### Visual Highlighting
-When a different user (not the owner) is detected, the response is visually highlighted on the interface.
 
 ---
 
