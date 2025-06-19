@@ -6,8 +6,6 @@ A voice recognition AI application that listens to users, identifies whether the
  
  https://ollama.com/
 
-### Architecture:
-![](static/logo.png)
 
 ## Features
 
