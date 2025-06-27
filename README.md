@@ -1,6 +1,6 @@
 # Voice Recognition AI
 
-A voice recognition AI application that listens to users, identifies whether the speaker is the owner or another user, and provides appropriate responses. When a different user (not the owner) activates the application, the responses are highlighted.
+A voice recognition AI application that listens to users, identifies whether the speaker is the owner or another user, and provides appropriate responses. When a different user (not the owner) activates the application, the responses are highlighted.At the moment it configured as full stack dev and answer you based on that.
 
 # Download ollama from website 
  
