@@ -74,6 +74,7 @@ def generate_answer(transcript, short_answer=True, temperature=0.3):
             model_instruction = (
                 "Provide a comprehensive, step-by-step technical answer suitable for an interview. "
                 "Explain your reasoning and solution clearly."
+                "Also give coding examples for an interviewer to understand the solution."
             )
 
         # Prompt style
