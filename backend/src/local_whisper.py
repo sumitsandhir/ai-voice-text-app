@@ -2,7 +2,7 @@ import os
 import whisper
 from loguru import logger
 
-from src.constants import (OUTPUT_FILE_NAME)
+from backend.src.constants import (OUTPUT_FILE_NAME)
 
 # Load the model (only once)
 # Options are: 'tiny', 'base', 'small', 'medium', 'large'

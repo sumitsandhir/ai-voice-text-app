@@ -117,7 +117,7 @@ sh python3 -c "import tkinter; print(tkinter.TkVersion)"
 ## How It Works
 
 ### Voice Recognition
-The application uses the Web Speech API (for web) or OpenAI Whisper (for local Python) to capture audio from the microphone and convert it to text.
+This is developer's assistant to answer any question regarding code. The application uses the Web Speech API (for web) or OpenAI Whisper (for local Python) to capture audio from the microphone and convert it to text.
 
 ### Response Generation
 Responses are generated based on the input question, often including both text and code examples where relevant.

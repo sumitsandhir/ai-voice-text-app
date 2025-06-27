@@ -2,7 +2,7 @@ import os
 import requests
 from loguru import logger
 
-from src.constants import OUTPUT_FILE_NAME, POSTION
+from backend.src.constants import OUTPUT_FILE_NAME, POSTION
 
 # Try to import SpeechRecognition and check availability
 try:

@@ -7,8 +7,8 @@ import sounddevice as sd
 import soundfile as sf
 from loguru import logger
 
-from src import llm, local_transcription
-from src.constants import APPLICATION_WIDTH, OUTPUT_FILE_NAME, RECORD_SEC, SAMPLE_RATE
+from backend.src import llm, local_transcription
+from backend.src.constants import APPLICATION_WIDTH, OUTPUT_FILE_NAME, RECORD_SEC, SAMPLE_RATE
 
 def run_app():
     # Ensure output directory exists

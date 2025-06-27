@@ -1,8 +1,8 @@
 import os
 from loguru import logger
 import requests
-from src.constants import OUTPUT_FILE_NAME, POSTION
-from src.local_whisper import (transcribe_audio_locally)  # Import Whisper-based function
+from backend.src.constants import OUTPUT_FILE_NAME, POSTION
+from backend.src.local_whisper import (transcribe_audio_locally)  # Import Whisper-based function
 
 def transcribe_local(path_to_file=OUTPUT_FILE_NAME):
     """
