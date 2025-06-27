@@ -1,7 +1,7 @@
 import os
 from loguru import logger
 import requests
-from src.constants import OUTPUT_FILE_NAME, INTERVIEW_POSTION
+from src.constants import OUTPUT_FILE_NAME, POSTION
 from src.local_whisper import (transcribe_audio_locally)  # Import Whisper-based function
 
 def transcribe_local(path_to_file=OUTPUT_FILE_NAME):
@@ -39,7 +39,7 @@ def generate_answer_with_ollama(transcript, short_answer=True, temperature=0.2):
         )
         max_tokens = 10000
 
-    system_prompt = f"You are interviewing for a {INTERVIEW_POSTION} position. Respond professionally."
+    system_prompt = f"You are interviewing for a {POSTION} position. Respond professionally."
 
     try:
         # Craft the prompt

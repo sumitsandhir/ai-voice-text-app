@@ -7,7 +7,7 @@ from src import audio, llm, local_transcription
 from src.constants import APPLICATION_WIDTH, OUTPUT_FILE_NAME
 
 
-class InterviewApp:
+class VoiceApp:
     def __init__(self):
         self.is_recording = False
         self.audio_data = None
@@ -167,5 +167,5 @@ class InterviewApp:
 
 
 if __name__ == "__main__":
-    app = InterviewApp()
+    app = VoiceApp()
     app.run()

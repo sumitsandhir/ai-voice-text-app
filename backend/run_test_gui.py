@@ -8,8 +8,8 @@ os.environ['TK_SILENCE_DEPRECATION'] = '1'
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 # Now import and run the actual script
-from src.test_gui import InterviewApp
+from src.test_gui import VoiceApp
 
 if __name__ == "__main__":
-    app = InterviewApp()
+    app = VoiceApp()
     app.run()

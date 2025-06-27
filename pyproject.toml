@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "hack-interview"
+name = "voice-assistant"
 version = "0.1.0"
 description = ""
-authors = [ "slgero <sersavvov@gmail.com>" ]
+authors = [ "sumit <sumit_sandhir@yahoo.com>" ]
 readme = "README.md"
-packages = [ { include = "hack_interview" } ]
+packages = [ { include = "voice-assistant" } ]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"

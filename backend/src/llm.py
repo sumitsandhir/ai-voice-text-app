@@ -2,7 +2,7 @@ import os
 import requests
 from loguru import logger
 
-from src.constants import OUTPUT_FILE_NAME, INTERVIEW_POSTION
+from src.constants import OUTPUT_FILE_NAME, POSTION
 
 # Try to import SpeechRecognition and check availability
 try:
@@ -86,7 +86,7 @@ def generate_answer(transcript, short_answer=True, temperature=0.3):
             max_tokens = 5000
 
         # System and final prompts
-        system_prompt = f"You are interviewing for a {INTERVIEW_POSTION} position. Respond professionally."
+        system_prompt = f"You are interviewing for a {POSTION} position. Respond professionally."
         prompt = (
             f"{system_prompt}\n\n"
             f"Question (transcribed audio): {transcript}\n\n"
